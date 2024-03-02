@@ -1,0 +1,33 @@
+*{
+    border: 1px solid violet;
+}
+
+body{
+    height: 100vh;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.middle{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+.main{
+    display: flex; 
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: stretch;
+    height: auto;
+    width: auto;
+}
+.grid{
+    height:  32px;
+    width: 32px;
+}
