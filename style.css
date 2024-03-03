@@ -1,4 +1,6 @@
-
+*{
+   font-family:  "Silkscreen";
+}
 div{
     margin: 0 0;
     padding:  0 0;
@@ -22,10 +24,20 @@ body{
     
     background-color: bisque;
 }
-.side1, .side2{
+.side2{
+    height: 600px;
     min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: space-evenly;
 }
+.side1{
+    height: 300px;
+}
+
 .middle{
+    gap: 15px;
     display: flex;
     align-items: center;
     height: 100%;
@@ -71,3 +83,6 @@ body{
     background-color: rgb(109, 180, 241); /* Green */
     color: white;
   }
+.size{
+    display: flex;
+}
