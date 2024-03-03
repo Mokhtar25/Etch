@@ -1,16 +1,29 @@
-*{
-    border: 1px solid violet;
-}
 
-body{
-    height: 100vh;
+div{
+    margin: 0 0;
+    padding:  0 0;
 }
-.page{
+body{
+    margin: 0 0 ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: #fff5e8;
+}
+.header{
+    height: 60px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 40px;
+    
+    background-color: bisque;
+}
+.side1, .side2{
+    min-width: 100px;
 }
 .middle{
     display: flex;
@@ -19,15 +32,42 @@ body{
     width: 100%;
     justify-content: space-around;
 }
-.main{
+.main_x{
+    background-color: white;
     display: flex; 
     flex-wrap: wrap;
-    align-content: stretch;
-    justify-content: stretch;
-    height: auto;
-    width: auto;
+    height:600px;
+    width: 600px;
+    min-width: 600px;
+    min-height: 600px;
+    border: 2px solid black;
+    align-items: start;
+    justify-content: space-around;
+    margin: 0 0;
+    padding: 0 0;
 }
-.grid{
-    height:  32px;
-    width: 32px;
+.grid_x{
+    border: 0.5px solid black;
+    width: 36.5px;
+    height: 36.5px;
+    padding: 0 0;
+    margin: 0 0;
+  
 }
+.footer{
+    height: 30px;
+}
+
+.eraser {
+    transition-duration: 0.4s;
+    border-radius: 3rem;
+    height: 40px;
+    color: black;
+    background-color: rgb(154, 216, 236);
+
+  }
+  
+.eraser:hover {
+    background-color: rgb(109, 180, 241); /* Green */
+    color: white;
+  }
