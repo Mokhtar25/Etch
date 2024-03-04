@@ -58,7 +58,8 @@ eraser_button.addEventListener("click", ()=>
             const text = document.querySelector(".input");
             let value = text.value;
             let v1 = value.split("*");   
-            if (v1[0] > 100 || v1[0] < 0){
+            v1[0] = Number(v1[0]);
+            if (v1[0] > 100 || v1[0] < 0 || v1[0] === NaN || !v1[0]){
                 alert("Please enter a Number from 0 to 100")
                 return 0;
             }

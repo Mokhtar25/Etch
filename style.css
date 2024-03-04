@@ -20,21 +20,30 @@ body{
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20;
     margin-bottom: 40px;
     
     background-color: bisque;
 }
 .side2{
     align-self: stretch;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 40px;
+    padding-left: 50px;
 
 }
 .side1{
     height: 300px;
+    width: auto;
+    padding-right: 50px;
+}
+.input_box{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .middle{
@@ -42,7 +51,6 @@ body{
     display: flex;
     align-items: center;
     height: 100%;
-    width: 100%;
     justify-content: space-around;
 }
 .main_x{
@@ -109,13 +117,13 @@ input{
 }
 
 .footer{
-    height: 30px;
-    width: 100%;
-    align-items: center;
-    margin: auto;
-    margin-top: 20px;
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-    background-color:bisque ;
+
+   align-self: stretch;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+   justify-self: end;
+   height: 30px;
+   background-color:bisque ;
 }
