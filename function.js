@@ -1,9 +1,17 @@
+
+// return list with the divs in the grid
 function return_divs(){
     return document.querySelectorAll(".grid_x");
 }
+//varibles
 let drawing = false;
 let color = "";
 let current_size = 0;
+let rainbow = false;
+let erase = false;
+
+
+//making the grid
 const main = document.querySelector(".main_x");
 function grid(num=16){
 for (let i = 0; i < (num*num) ; i++){
@@ -21,31 +29,31 @@ document.addEventListener('mousedown', ()=>{
 document.addEventListener('mouseup', ()=>{
     drawing = false;
 })
+
+//color wheel api
 var colorPicker = new iro.ColorPicker('#picker', {
     width : 100, color : "#f00"
 });
  
 color = colorPicker.color.hexString;
-
 colorPicker.on('color:change', ()=>{
     color = colorPicker.color.hexString;
-    eraser_button.style.backgroundColor =  "rgb(154, 216, 236)";
-        eraser_button.style.color =  "black";
+    erase = false;
+    rainbow = false;
+    update_buttons();
 })
 
 
-
+// eraser button
 let eraser_button = document.querySelector('.eraser');
 eraser_button.addEventListener("click", ()=>
     {
+        erase = true;
+        rainbow = false;
         color = "#fff";
         eraser_button.style.backgroundColor =  "rgb(109, 180, 241)";
         eraser_button.style.color =  "white";
-    })
-
-
-
-        
+    })  
         const rest = document.querySelector('.rest');
         rest.addEventListener('click', () => {
             divs = return_divs();
@@ -53,6 +61,7 @@ eraser_button.addEventListener("click", ()=>
                 element.style.backgroundColor = "#fff";
             });
         });   
+        // making the grid 
         const submit = document.querySelector(".submit");
         submit.addEventListener("click", ()=>{
             const text = document.querySelector(".input");
@@ -76,13 +85,55 @@ eraser_button.addEventListener("click", ()=>
 
             
         })
-        function draw(){
+        // random int for the rainbow function
+        function random(max=255) {
+            return Math.floor(Math.random() * max);
+          }
 
+        const rainbow_btn = document.querySelector(".rainbow");
+
+        rainbow_btn.addEventListener("click", ()=>
+        {
+            color = "#fff";
+            rainbow_btn.style.backgroundColor =  "rgb(109, 180, 241)";
+            rainbow_btn.style.color =  "white";
+            rainbow = true;
+            erase = false;
+            update_buttons()
+
+        })
+          
+
+        function update_buttons(){
+            if (erase){
+                rainbow_btn.style.backgroundColor =  "rgb(154, 216, 236)";
+                rainbow_btn.style.color =  "black";
+            }
+            else if (rainbow){
+                eraser_button.style.backgroundColor =  "rgb(154, 216, 236)";
+                eraser_button.style.color =  "black";
+            }
+            else {
+                eraser_button.style.backgroundColor =  "rgb(154, 216, 236)";
+                eraser_button.style.color =  "black";
+                rainbow_btn.style.backgroundColor =  "rgb(154, 216, 236)";
+                rainbow_btn.style.color =  "black";
+            }
+            
+        }
+
+
+        //draw to the screen when the mouse click and dragged
+        function draw(){
         let divs = document.querySelectorAll('.grid_x');
         divs.forEach((element) =>  {
             element.addEventListener("mousemove", function() {
                 if (drawing){
+                    if (rainbow){
+                    color = `rgb(${random()},${random()},${random()})`;
+                    }
                 element.style.backgroundColor = color;
+
                 }
                 
     
