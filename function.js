@@ -1,15 +1,20 @@
 
 // return list with the divs in the grid
-function return_divs(){
-    return document.querySelectorAll(".grid_x");
-}
+
+
 //varibles
+let divs = document.querySelectorAll(".grid_x");
 let drawing = false;
 let color = "";
+let grid_show = false;
 let current_size = 0;
 let rainbow = false;
 let erase = false;
 
+function return_divs(){
+    divs = document.querySelectorAll(".grid_x");
+    return divs;
+}
 
 //making the grid
 const main = document.querySelector(".main_x");
@@ -80,17 +85,39 @@ eraser_button.addEventListener("click", ()=>
             }
             main.innerHTML = "";
             grid(v1[0]);
-            let divs = document.querySelectorAll('.grid_x');
+            return_divs();
             divs.forEach((e)=> {
                 e.style.width= `${(600/v1[0])}px`;
                 e.style.height= `${600/(v1[0])}px`;
             })
-              
-            
             draw();
-
-            
         })
+
+        // check box to hide the grid
+        const check_box = document.querySelector("#check")
+        check_box.addEventListener("click", ()=>{
+            let divs = document.querySelectorAll('.grid_x');
+            if (!grid_show){
+            
+            divs.forEach((e)=>{
+                e.style.border = "1px solid rgba(206, 195, 195, 0.3)";
+
+                grid_show = true;
+            })}
+            else{
+            divs.forEach((e)=>{
+                e.style.border = "";
+                grid_show = false;
+            })}
+
+        })
+            
+
+        
+    
+
+
+
         // random int for the rainbow function
         function random(max=255) {
             return Math.floor(Math.random() * max);
