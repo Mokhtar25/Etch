@@ -50,6 +50,7 @@ eraser_button.addEventListener("click", ()=>
     {
         erase = true;
         rainbow = false;
+        update_buttons();
         color = "#fff";
         eraser_button.style.backgroundColor =  "rgb(109, 180, 241)";
         eraser_button.style.color =  "white";
@@ -61,6 +62,11 @@ eraser_button.addEventListener("click", ()=>
                 element.style.backgroundColor = "#fff";
             });
         });   
+
+
+
+
+
         // making the grid 
         const submit = document.querySelector(".submit");
         submit.addEventListener("click", ()=>{
