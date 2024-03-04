@@ -14,6 +14,7 @@ body{
     background-color: #fff5e8;
 }
 .header{
+    
     height: 60px;
     display: flex;
     width: 100%;
@@ -25,12 +26,12 @@ body{
     background-color: bisque;
 }
 .side2{
-    height: 600px;
-    min-width: 100px;
+    align-self: stretch;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 40px;
+
 }
 .side1{
     height: 300px;
@@ -59,18 +60,28 @@ body{
     padding: 0 0;
 }
 .grid_x{
-    border: 0.5px solid black;
-    width: 36.5px;
-    height: 36.5px;
+    box-sizing: border-box;
+    border: 1px solid rgba(206, 195, 195, 0.3);
+    width: 37.5px;
+    height: 37.5px;
     padding: 0 0;
     margin: 0 0;
   
 }
-.footer{
-    height: 30px;
-}
 
-.eraser {
+button{
+    transition-duration: 0.4s;
+    border-radius: 3rem;
+    height: 40px;
+    color: black;
+    background-color: rgb(154, 216, 236);
+
+}
+button:hover{
+    background-color: rgb(109, 180, 241); /* Green */
+    color: white;
+}
+.eraser, .rest {
     transition-duration: 0.4s;
     border-radius: 3rem;
     height: 40px;
@@ -79,10 +90,32 @@ body{
 
   }
   
-.eraser:hover {
+.eraser:hover, .rest:hover {
     background-color: rgb(109, 180, 241); /* Green */
     color: white;
   }
-.size{
+
+
+
+input{
+    border-radius: 3rem;
+    padding: 5px;
+    height: 28px;
+}
+.buttons{
     display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer{
+    height: 30px;
+    width: 100%;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    background-color:bisque ;
 }

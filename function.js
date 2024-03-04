@@ -1,13 +1,19 @@
-
+function return_divs(){
+    return document.querySelectorAll(".grid_x");
+}
 let drawing = false;
 let color = "";
+let current_size = 0;
 const main = document.querySelector(".main_x");
-
-for (let i = 0; i < 256; i++){
+function grid(num=16){
+for (let i = 0; i < (num*num) ; i++){
     let new_div = document.createElement('div');
     new_div.classList.add("grid_x");
     document.querySelector('.main_x').appendChild(new_div);
+    current_size = num;
 }
+}
+grid();
 document.addEventListener('mousedown', ()=>{
     drawing = true;
 })
@@ -27,6 +33,8 @@ colorPicker.on('color:change', ()=>{
         eraser_button.style.color =  "black";
 })
 
+
+
 let eraser_button = document.querySelector('.eraser');
 eraser_button.addEventListener("click", ()=>
     {
@@ -35,23 +43,53 @@ eraser_button.addEventListener("click", ()=>
         eraser_button.style.color =  "white";
     })
 
-let divs = document.querySelectorAll('.grid_x');
-    divs.forEach((element) =>  {
-        element.addEventListener("mousemove", function() {
-            if (drawing){
-            element.style.backgroundColor = color;
-            }
-            
 
-        element.addEventListener("click", function() {
-           
-            element.style.backgroundColor = color;
-            })
-
-        })})
 
         
-   
-       
+        const rest = document.querySelector('.rest');
+        rest.addEventListener('click', () => {
+            divs = return_divs();
+            divs.forEach((element) => {
+                element.style.backgroundColor = "#fff";
+            });
+        });   
+        const submit = document.querySelector(".submit");
+        submit.addEventListener("click", ()=>{
+            const text = document.querySelector(".input");
+            let value = text.value;
+            let v1 = value.split("*");   
+            if (v1[0] > 100 || v1[0] < 0){
+                alert("Please enter a Number from 0 to 100")
+                return 0;
+            }
+            main.innerHTML = "";
+            grid(v1[0]);
+            let divs = document.querySelectorAll('.grid_x');
+            divs.forEach((e)=> {
+                e.style.width= `${(600/v1[0])}px`;
+                e.style.height= `${600/(v1[0])}px`;
+            })
+              
+            
+            draw();
 
-  
+            
+        })
+        function draw(){
+
+        let divs = document.querySelectorAll('.grid_x');
+        divs.forEach((element) =>  {
+            element.addEventListener("mousemove", function() {
+                if (drawing){
+                element.style.backgroundColor = color;
+                }
+                
+    
+            element.addEventListener("click", function() {
+               
+                element.style.backgroundColor = color;
+                })
+    
+            })})
+        }
+        draw()
