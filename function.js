@@ -19,12 +19,14 @@ function return_divs(){
 //making the grid
 const main = document.querySelector(".main_x");
 function grid(num=16){
+   const cont =  document.createDocumentFragment();
 for (let i = 0; i < (num*num) ; i++){
     let new_div = document.createElement('div');
     new_div.classList.add("grid_x");
-    document.querySelector('.main_x').appendChild(new_div);
-    current_size = num;
+    cont.appendChild(new_div);
 }
+main.appendChild(cont);
+current_size = num;
 }
 grid();
 document.addEventListener('mousedown', ()=>{
