@@ -91,6 +91,9 @@ eraser_button.addEventListener("click", ()=>
             divs.forEach((e)=> {
                 e.style.width= `${(600/v1[0])}px`;
                 e.style.height= `${600/(v1[0])}px`;
+                if (grid_show){
+                    e.style.border = "1px solid rgba(206, 195, 195, 0.3)"
+                }
             })
             draw();
         })
