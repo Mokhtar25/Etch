@@ -157,7 +157,10 @@ eraser_button.addEventListener("click", ()=>
                 rainbow_btn.style.backgroundColor =  "rgb(154, 216, 236)";
                 rainbow_btn.style.color =  "black";
             }
-            
+            const butt = document.querySelectorAll(".toggle");
+            butt.forEach((e) =>{
+                e.classList.add("active");
+            })
         }
 
 
